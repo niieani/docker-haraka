@@ -13,7 +13,7 @@ machine:
 dependencies:
     pre:
         - docker info
-        - apt-get install -y swaks
+        - sudo apt-get install -y swaks
         - docker build -t haraka
         - docker -it run haraka -i .
         - docker -d -p 25:25 run haraka -c .
