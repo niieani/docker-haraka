@@ -17,9 +17,9 @@ dependencies:
         - docker build -t haraka .
         - mkdir haraka
         - docker run -it --rm -p 25:25 -v $(pwd)/haraka:/haraka haraka -i /haraka
-        - docker run -it --rm -p 25:25 -v $(pwd)/haraka:/haraka haraka -c /haraka
+        - docker run --rm -d -p 25:25 -v $(pwd)/haraka:/haraka haraka -c /haraka
 
 test:
     override:
         - sleep 10
-        - swaks --to test@localhost
+        - swaks --to test@$HOSTNAME
