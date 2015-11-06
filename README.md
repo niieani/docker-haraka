@@ -6,13 +6,16 @@ Dockerfile for Haraka designed for easy local plugin development
 ## Install 
 
 ```bash
-$ docker run -it --rm -p 2525:25 -v (pwd)/haraka:/haraka haraka -i /haraka
+$ docker run -it --rm -v $(pwd)/haraka:/haraka haraka -i /haraka
 ```
 
-## Start
+## Start on port 2525
 
-## 
 ```bash
-$ docker run -it --rm -p 2525:25 -v (pwd)/haraka:/haraka haraka -c /haraka
+$ docker run -it --rm -p 2525:25 -v $(pwd)/haraka:/haraka haraka -c /haraka
 ```
 
+## Create plugin
+```bash
+$ docker run -it --rm -v $(pwd)/haraka:/haraka haraka -c /haraka -p plugin_name
+```
