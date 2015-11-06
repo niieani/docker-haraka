@@ -11,9 +11,8 @@ RUN curl -sL https://deb.nodesource.com/setup_5.x | bash - && \
 
 # Install Haraka
 RUN npm install -g Haraka
-
-VOLUME /usr/local/haraka
-WORKDIR /usr/local/haraka
+RUN mkdir /haraka
+WORKDIR /haraka
 
 EXPOSE 25
-ENTRYPOINT haraka
+ENTRYPOINT [ "/usr/bin/haraka" ]
