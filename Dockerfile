@@ -15,4 +15,7 @@ RUN mkdir /haraka
 WORKDIR /haraka
 
 EXPOSE 25
+EXPOSE 465
+EXPOSE 587
+
 ENTRYPOINT [ "/usr/bin/haraka" ]

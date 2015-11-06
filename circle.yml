@@ -17,6 +17,11 @@ dependencies:
         - docker build -t haraka .
         - mkdir haraka
         - docker run -it --rm -p 25:25 -v $(pwd)/haraka:/haraka haraka -i /haraka
+        - wget https://raw.githubusercontent.com/madeingnecca/haraka-plugins/master/relay_fake.js
+        - mv relay_fake.js ./haraka/plugins/
+        - echo rcpt_to.in_host_list > ./haraka/config/plugins
+        - echo relay_fake >> ./haraka/config/plugins
+        - echo localhost > ./haraka/config/me
         - docker run -d -p 25:25 -v $(pwd)/haraka:/haraka haraka -c /haraka
 
 test:
