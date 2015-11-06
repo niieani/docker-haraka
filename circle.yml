@@ -1,0 +1,24 @@
+#####
+# Circle CI
+# 
+# For running docker images on circle ci, see: https://circleci.com/docs/docker
+# For circle.yml explanation, see: https://circleci.com/docs/manually
+# Python specific configuration, see: https://circleci.com/docs/language-python
+#####
+
+machine:
+    services:
+        - docker
+
+dependencies:
+    pre:
+        - docker info
+		- apt-get install -y swaks
+		- docker build -t haraka
+		- docker -it run haraka -i .
+        - docker -d -p 25:25 run haraka -c .
+
+test:
+    override:
+        - sleep 10
+        - swaks --to test@$HOSTNAME
