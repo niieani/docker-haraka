@@ -22,4 +22,4 @@ dependencies:
 test:
     override:
         - sleep 10
-        - swaks --to test@$HOSTNAME
+        - swaks --to ubuntu@localhost
