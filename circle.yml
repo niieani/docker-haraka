@@ -15,8 +15,8 @@ dependencies:
         - docker info
         - sudo apt-get install -y swaks
         - docker build -t haraka .
-        - docker run -it haraka -i .
-        - docker run -d -p 25:25 haraka -c .
+        - docker run -it haraka -i /usr/local/haraka
+        - docker run -d -p 25:25 haraka -c /usr/local/haraka
 
 test:
     override:
