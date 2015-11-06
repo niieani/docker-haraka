@@ -1,0 +1,8 @@
+haraka:
+  build: .
+  ports:
+    - "25:25"
+    - "587:587"
+  volumes:
+    - ./haraka:/haraka
+  command: -c /haraka
