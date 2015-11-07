@@ -16,7 +16,7 @@ dependencies:
         - sudo apt-get install -y swaks
         - docker build -t haraka .
         - mkdir ./haraka
-        - docker run -it -v $(pwd)/haraka:/haraka haraka -i /haraka
+        - docker run -it -v $(pwd)/haraka:/haraka haraka haraka -i /haraka
         - wget https://raw.githubusercontent.com/madeingnecca/haraka-plugins/master/relay_fake.js
         - sudo mv relay_fake.js ./haraka/plugins/
         - sudo rm ./haraka/config/plugins
