@@ -15,14 +15,13 @@ dependencies:
         - docker info
         - sudo apt-get install -y swaks
         - docker build -t haraka .
-        - mkdir haraka
-        - docker run -it --rm -p 25:25 -v $(pwd)/haraka:/haraka haraka -i /haraka
+        - mkdir -p ./haraka/plugins ./haraka/config
         - wget https://raw.githubusercontent.com/madeingnecca/haraka-plugins/master/relay_fake.js
         - sudo mv relay_fake.js ./haraka/plugins/
         - sudo echo rcpt_to.in_host_list > ./haraka/config/plugins
         - sudo echo relay_fake >> ./haraka/config/plugins
         - sudo echo localhost > ./haraka/config/me
-        - docker run -d -p 25:25 -v $(pwd)/haraka:/haraka haraka -c /haraka
+        - docker run -d -p 25:25 -v $(pwd)/haraka:/haraka haraka
 
 test:
     override:

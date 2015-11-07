@@ -3,6 +3,6 @@ haraka:
   ports:
     - "25:25"
     - "587:587"
+    - "465:465"
   volumes:
     - ./haraka:/haraka
-  command: -c /haraka
