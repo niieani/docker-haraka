@@ -3,19 +3,24 @@ Dockerfile for Haraka designed for easy local plugin development
 
 # Usage
 
-## Install 
+## Build
 
 ```bash
-$ docker run -it --rm -v $(pwd)/haraka:/haraka haraka -i /haraka
+$ docker-compose build
 ```
 
-## Start on port 2525
+## Start
 
 ```bash
-$ docker run -it --rm -p 2525:25 -v $(pwd)/haraka:/haraka haraka -c /haraka
+$ docker-compose up # -d for background
 ```
 
-## Create plugin
+## Create plugin `plugin_name`
 ```bash
 $ docker run -it --rm -v $(pwd)/haraka:/haraka haraka -c /haraka -p plugin_name
+```
+
+## Testing
+```bash
+$ docker exec -it mail_haraka_1 swaks -t target@email.com -f from@email.com --auth CRAM-MD5 --auth-user youruser --server localhost
 ```

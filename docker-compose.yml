@@ -6,3 +6,7 @@ haraka:
     - "465:465"
   volumes:
     - ./haraka:/haraka
+  log_driver: "json-file"
+  log_opt:
+    max-size: "10k"
+    max-file: "20"
